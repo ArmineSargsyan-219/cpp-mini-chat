@@ -7,6 +7,10 @@
 *.o
 *.obj
 
+*.exe
+*.o
+
+
 # Precompiled Headers
 *.gch
 *.pch
