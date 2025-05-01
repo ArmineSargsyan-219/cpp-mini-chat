@@ -1,0 +1,5 @@
+[Armine]: hi
+hello
+[Armine]: how are you doing
+fine
+[Armine] left the chat.
