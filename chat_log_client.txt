@@ -3,3 +3,12 @@ hello
 [Armine]: how are you doing
 fine
 [Armine] left the chat.
+[Armine]: Hi my name is Armine and this is my simple project
+g++ server.cpp -o server.exe -lws2_32
+[Armine] left the chat.
+[Armine]: Hello thee, how are u?
+good
+[Armine] left the chat.
+[Ann]: Hello
+hi
+[Ann] left the chat.

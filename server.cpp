@@ -26,21 +26,31 @@ int main() {
 
     while (true) {
         ZeroMemory(buffer, sizeof(buffer));
-        recv(clientSocket, buffer, sizeof(buffer), 0);
-        std::string received(buffer);
+        int bytesReceived = recv(clientSocket, buffer, sizeof(buffer), 0);
+        if (bytesReceived <= 0) break;
 
-if (received.find("exit") != std::string::npos) {
-    std::cout << "Client has left the chat." << std::endl;
-    break;
-}
-        std::cout << buffer << std::endl;
+        std::string received(buffer);
+        if (received.find("exit") != std::string::npos) {
+            std::cout << "Client has left the chat." << std::endl;
+            break;
+        }
+
+        std::cout << received << std::endl;
 
         std::string reply;
         std::cout << "You: ";
         std::getline(std::cin, reply);
+
+         if (reply == "exit") {
+            send(clientSocket, reply.c_str(), reply.size(), 0);
+            std::cout << "You have left the chat." << std::endl;
+            break;
+        }
+
         send(clientSocket, reply.c_str(), reply.size(), 0);
     }
 
+    closesocket(clientSocket);
     closesocket(serverSocket);
     WSACleanup();
     return 0;
